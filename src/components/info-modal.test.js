@@ -12,7 +12,7 @@ describe('<InfoModal />', () => {
     it('InfoModal method should be called on click', ()=>{
       const callback = jest.fn();
       const wrapper = mount(<InfoModal onClose={callback} />);
-      wrapper.find('a').simulate('click');
+      wrapper.find('.close').simulate('click');
       expect(callback).toHaveBeenCalled();
     });
 });

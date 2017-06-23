@@ -13,7 +13,19 @@ describe('<GuessForm />', () => {
     it('GuessForm submit button calls function on submit', () => {
       const callback = jest.fn();
       const wrapper = mount(<GuessForm onGuess={callback} />)
+      const value = 5;
+      wrapper.find('input[type="text"]').node.value = value;
       wrapper.find('form').simulate('submit');
-      expect(callback).toHaveBeenCalled();
+      expect(callback).toHaveBeenCalledWith(value.toString());
     });
+    it('GuessForm submit button calls function on submit', () => {
+      const callback = jest.fn();
+      const wrapper = mount(<GuessForm />)
+      const value = 5;
+      const input = wrapper.find('input[type="text"]')
+      input.node.value = value;
+      wrapper.find('form').simulate('submit');
+      expect(input.node.value).toEqual('');
+    });
+
 });

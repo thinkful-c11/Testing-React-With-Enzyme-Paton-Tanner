@@ -4,7 +4,6 @@ import './top-nav.css';
 
 export default class TopNav extends React.Component {
     onNewGame(event) {
-            console.log(event.Tanner)
         event.preventDefault();
         if (this.props.onNewGame) {
             this.props.onNewGame();
